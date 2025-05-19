@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egypt Transport - From Cairo to New Administrative Capital</title>
+    <link rel="stylesheet" href="/CSS/Homepage.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/JS/homescreen.js"></script>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Nav -->
+<nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="/HTML/Homepage.html" class="flex items-center">
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"/>
+                        </svg>
+                    </div>
+                    <span class="ml-2 text-gray-900 font-bold">C2C</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/HTML/Homepage.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">Home</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                        Maps
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="/HTML/Maps - Metro.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">Metro</a>
+                        <a href="/HTML/Maps-LRT.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">LRT</a>
+                        <a href="/HTML/Maps-MwaslatMisr.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">Mwasalat misr</a>
+                    </div>
+                </div>
+                
+                <a href="/HTML/FAQ.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">FAQ</a>
+                <a href="/HTML/AboutUs.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">About us</a>
+            </div>
+
+            <div>
+                <a href="/HTML/Account.html" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium">
+                    Account
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl lg:text-5xl font-bold leading-tight">
+                    From <span class="text-green-500">Cairo</span> to <span class="text-green-500">New Administrative Capital</span>
+                    <span class="block text-gray-900">efficiently</span>
+                </h1>
+                
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Tired from waiting in lines? c2c's goal is to help you book your 
+                    ticket from A to Z and have it ready in under a minute
+                </p>
+                
+                <div class="pt-4">
+                    <button class="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" onclick="document.getElementById('transportation-method').scrollIntoView({ behavior: 'smooth' });">
+                        Let's get started!
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="/Images/homepage1.jpg" alt="Modern train in Egypt at sunset" class="w-full h-96 object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                </div>
+                
+                <div class="absolute -top-4 -right-4 w-20 h-20 bg-green-100 rounded-full opacity-60"></div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-100 rounded-full opacity-40"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Services -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">Services we offer</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="/Images/lrt.png" alt="">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Light Rail Transit (LRT)</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Cairo's Light Rail Transit: A 70km electrified rail system linking Cairo to the New Administrative Capital and 10th of Ramadan City, featuring 12 stations since 2022
+                    </p>
+                </div>
+
+                <div class="bg-blue-50 rounded-2xl p-8 text-center border-2 border-blue-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <img src="/Images/glm.png" alt="">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Metro</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Cairo Metro has 84 stations of which 5 are transfer stations, with a total length of 106.8 kilometres (66.4 mi). The system consists of three operational lines numbered 1 to 3.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="/Images/mwm.png" alt="">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Mwasalat Misr</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Mwasalat Misr is a premier transportation company transforming public transport in Egypt through innovative and sustainable solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transportation Method -->
+    <section class="max-w-4xl mx-auto py-12 px-4 sm:px-6" id="transportation-method">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold">
+            Choose your 
+            <span class="text-green-600">Transportation</span>
+            <span class="text-purple-700"> Method</span>
+          </h2>
+        </div>
+        
+        <div class="space-y-6">
+          <!-- LRT Option -->
+          <a href="/HTML/Select Station-LRT.html" class="block bg-red-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+            <div class="flex p-6">
+              <div class="w-1/4 flex items-center justify-center">
+                <img src="/Images/lrt.png" alt="">
+              </div>
+              <div class="w-3/4 pl-4">
+                <h3 class="text-xl font-semibold mb-2">Light Rail Transit (LRT)</h3>
+                <p class="text-sm text-gray-600">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </a>
+    
+          <!-- Metro Option -->
+          <a href="/HTML/Select Station-Metro.html" class="block bg-green-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+            <div class="flex p-6">
+              <div class="flex items-center justify-center">
+                <img src="/Images/glm.png" alt="" height="500" width="200">
+              </div>
+              <div class="w-3/4 pl-4">
+                <h3 class="text-xl font-semibold mb-2">Metro</h3>
+                <p class="text-sm text-gray-600">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </a>
+    
+          <!-- Mwasalat Misr Option -->
+          <a href="/HTML/Select Station-Mwaslat Misr.html" class="block bg-yellow-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer hover:bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
+            <div class="flex p-6 items-center">
+              <div class="flex items-center justify-center w-1/4">
+                <img src="/Images/mwm.png" alt="" class="h-50 w-auto">
+              </div>
+              <div class="w-3/4 pl-4">
+                <h3 class="text-xl font-semibold mb-2">Mwasalat Misr</h3>
+                <p class="text-sm text-gray-600">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    <!-- Continue -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="w-16 h-1 bg-purple-600"></div>
+                    
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                        From Cairo to New Administrative Capital efficiently
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        By utilizing advanced technologies, we are able to ease the ticketing process for you, buying tickets is even easier with c2c, choose your start location and end location, and leave the rest for us!
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-2xl overflow-hidden shadow-xl">
+                        <img src="/Images/homepage2.png" alt="Modern monorail system in Egypt" class="w-full h-96 object-cover"/>
+                    </div>
+                    
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 rounded-full opacity-60"></div>
+                    <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-blue-100 rounded-full opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header with border box -->
+            <div class="max-w-3xl mx-auto mb-16">
+                <div class="rounded-lg p-8 text-center">
+                    <div class="space-y-2">
+                        <p class="text-lg text-gray-700">By the help of these companies</p>
+                        <p class="text-2xl font-bold text-gray-900">
+                            We are able to make your<br>
+                            experience <span class="text-green-500">better</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner Logos -->
+            <div class="flex justify-center items-center space-x-8 md:space-x-16">
+                <!-- Green Line Logo -->
+                    <img src="/Images/glm.png" alt="" height="200" width="200">
+                <!-- Mwasalat Logo -->
+                    <img src="/Images/mwm.png" alt="" height="200" width="200">
+
+                <!-- Capital Train Logo -->
+                    <img src="/Images/lrt.png" alt="" height="200" width="200">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

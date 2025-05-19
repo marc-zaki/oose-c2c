@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - C2C Transport</title>
+    <link rel="stylesheet" href="/CSS/Homepage.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/JS/homescreen.js"></script>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Nav -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/HTML/Homepage.html" class="flex items-center">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"/>
+                            </svg>
+                        </div>
+                        <span class="ml-2 text-gray-900 font-bold">C2C</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/HTML/Homepage.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="flex items-center text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                            Maps
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="/HTML/Maps - Metro.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">Metro</a>
+                            <a href="/HTML/Maps-LRT.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">LRT</a>
+                            <a href="/HTML/Maps-MwaslatMisr.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">Mwasalat misr</a>
+                        </div>
+                    </div>
+                    
+                    <a href="/HTML/FAQ.html" class="text-purple-600 border-b-2 border-purple-600 font-medium transition-colors">FAQ</a>
+                    <a href="/HTML/AboutUs.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">About us</a>
+                </div>
+
+                <div>
+                    <a href="/HTML/Account.html" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium">
+                        Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-green-500 to-purple-600 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold text-white">Frequently Asked Questions</h1>
+            <p class="mt-4 text-lg text-white text-opacity-90">Everything you need to know about using C2C Transport services</p>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="space-y-12">
+            <!-- General Questions -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">General Questions</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">What is C2C?</h3>
+                        <p class="text-gray-600">C2C (Cairo to Capital) is a platform that helps you book tickets for various transportation methods between Cairo and the New Administrative Capital quickly and efficiently.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Which transportation methods are available?</h3>
+                        <p class="text-gray-600">C2C provides booking services for three main transportation methods: Light Rail Transit (LRT), Cairo Metro, and Mwasalat Misr buses.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Do I need to create an account to book tickets?</h3>
+                        <p class="text-gray-600">Yes, you need to create an account to book tickets. This allows you to manage your bookings, save payment methods, and access your ticket history.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Booking Questions -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Booking & Tickets</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I book a ticket?</h3>
+                        <p class="text-gray-600">
+                            To book a ticket, select your preferred transportation method on the 
+                            <a href="/HTML/Homepage.html" class="underline text-blue-600 hover:text-blue-800">homepage</a>, 
+                            choose your departure and destination stations, select a date and time, and complete the payment. 
+                            Your digital ticket will be available immediately in your account.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I cancel or change my booking?</h3>
+                        <p class="text-gray-600">Yes, you can cancel or change your booking up to 6 hours before departure time. Changes may be subject to availability and possible fare differences. Cancellations may be subject to cancelation fees depending on how early you cancel.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I use my ticket?</h3>
+                        <p class="text-gray-600">Your ticket is available digitally in your account. You can either show the QR code from your account or download the ticket for offline use. Some transportation methods also support NFC technology if your device is compatible.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Transportation Methods -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Transportation Methods</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">What is the Light Rail Transit (LRT)?</h3>
+                        <p class="text-gray-600">The Light Rail Transit is a 70km electrified rail system linking Cairo to the New Administrative Capital and 10th of Ramadan City. It features 12 stations and has been operating since 2022.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">What Metro lines connect to the New Administrative Capital?</h3>
+                        <p class="text-gray-600">The Cairo Metro consists of three operational lines with 84 stations covering a total length of 106.8 kilometers. While not all lines directly connect to the New Administrative Capital, C2C helps you find the optimal combination of metro lines and other transportation methods to reach your destination.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">What is Mwasalat Misr?</h3>
+                        <p class="text-gray-600">Mwasalat Misr is a premier transportation company in Egypt providing innovative and sustainable public transport solutions. They operate buses between Cairo and the New Administrative Capital with comfortable seating and modern amenities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Account & Payment -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Account & Payment</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I create an account?</h3>
+                        <p class="text-gray-600">Click on the "Account" button in the top-right corner of the website, then select "Sign Up" and follow the instructions to create your account.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">What payment methods are accepted?</h3>
+                        <p class="text-gray-600">We accept credit/debit cards, mobile wallets, and Fawry Pay. All transactions are secure and encrypted.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Is my payment information secure?</h3>
+                        <p class="text-gray-600">Yes, we use industry-standard encryption and security measures to protect your payment information. We do not store your complete card details on our servers.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support & Contact -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Support & Contact</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">How can I contact customer support?</h3>
+                        <p class="text-gray-600">You can contact our customer support team via email at support@c2c-transport.eg, by phone at +20 123 456 7890</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">What should I do if there's an issue with my ticket?</h3>
+                        <p class="text-gray-600">If you encounter any issues with your ticket, please contact our customer support immediately. For urgent matters at the station, please approach the station staff and show them your booking confirmation.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">How can I provide feedback about the service?</h3>
+                        <p class="text-gray-600">We value your feedback! You can rate your journey experience in your account after each trip. For more detailed feedback, please use the contact form on our website or email us at feedback@c2c-transport.eg.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Still Have Questions -->
+        <div class="mt-16 text-center">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Still Have Questions?</h2>
+            <p class="text-gray-600 mb-6">Our support team is ready to assist you with any other questions you might have.</p>
+            <a href="/HTML/ContactUs.html" class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-green-500 to-purple-600 text-white rounded-lg font-semibold hover:from-green-600 hover:to-purple-700 transition-all duration-200 shadow-lg">
+                Contact Support
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"/>
+                        </svg>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">C2C</span>
+                </div>
+                <p class="mt-8 text-base text-gray-500 md:mt-0 md:order-1">&copy; 2025 C2C Transport. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+``` 

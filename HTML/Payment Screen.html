@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Payment - Egypt Transport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'green-primary': '#10b981',
+                        'purple-primary': '#7c3aed'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Payment Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-green-600 mb-2">Checkout Payment</h1>
+            </div>
+
+            <!-- Payment Method Icons -->
+            <div class="flex justify-center space-x-4 mb-8">
+                <!-- Mastercard -->
+                <div class="w-12 h-8 flex items-center justify-center">
+                    <div class="flex">
+                        <div class="w-6 h-6 bg-red-500 rounded-full opacity-90"></div>
+                        <div class="w-6 h-6 bg-yellow-400 rounded-full -ml-3 opacity-90"></div>
+                    </div>
+                </div>
+                
+                <!-- Visa -->
+                <div class="w-16 h-8 bg-blue-600 rounded flex items-center justify-center">
+                    <span class="text-white font-bold text-sm italic">VISA</span>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <form class="space-y-6">
+                <!-- Card Number -->
+                <div>
+                    <label for="cardNumber" class="block text-sm text-green-600 font-medium mb-2">Card Number</label>
+                    <input 
+                        type="text" 
+                        id="cardNumber" 
+                        name="cardNumber"
+                        placeholder="1234 5678 9012 3456"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-colors"
+                        maxlength="19"
+                    />
+                </div>
+
+                <!-- Cardholder's Name -->
+                <div>
+                    <label for="cardholderName" class="block text-sm text-green-600 font-medium mb-2">Cardholder's Name</label>
+                    <input 
+                        type="text" 
+                        id="cardholderName" 
+                        name="cardholderName"
+                        placeholder="John Doe"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-colors"
+                    />
+                </div>
+
+                <!-- Expiry Date and CVV -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="expiryDate" class="block text-sm text-green-600 font-medium mb-2">Expiry Date</label>
+                        <input 
+                            type="text" 
+                            id="expiryDate" 
+                            name="expiryDate"
+                            placeholder="MM/YY"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-colors"
+                            maxlength="5"
+                        />
+                    </div>
+                    <div>
+                        <label for="cvv" class="block text-sm text-green-600 font-medium mb-2">CVV</label>
+                        <input 
+                            type="text" 
+                            id="cvv" 
+                            name="cvv"
+                            placeholder="123"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-colors"
+                            maxlength="4"
+                        />
+                    </div>
+                </div>
+
+                <!-- Confirm Button -->
+                <button 
+                    type="submit"
+                    class="w-full bg-gradient-to-r from-green-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                    Confirm
+                </button>
+            </form>
+        </div>
+
+        <!-- Security Note -->
+        <div class="text-center mt-6">
+            <p class="text-sm text-gray-500">
+                🔒 Your payment information is secure and encrypted
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Format card number with spaces
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+            e.target.value = formattedValue;
+        });
+
+        // Format expiry date
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Only allow numbers for CVV
+        document.getElementById('cvv').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Payment processing... (This is a demo)');
+        });
+    </script>
+</body>
+</html>

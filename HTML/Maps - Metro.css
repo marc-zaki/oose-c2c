@@ -1,0 +1,23 @@
+.metro-section {
+    background-color: rgba(243, 244, 246, 0.5);
+}
+.metro-map-container {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.metro-line-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+.line-1 {
+    background-color: #FF0000; 
+}
+.line-2 {
+    background-color: #0000FF; 
+}
+.line-3 {
+    background-color: #00AA00; 
+}

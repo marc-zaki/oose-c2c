@@ -1,0 +1,17 @@
+.mwasalat-section {
+    background-color: rgba(239, 246, 255, 0.5);
+}
+.mwasalat-map-container {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.mwasalat-route-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+.express-bus {
+    background-color: #2563eb;
+}

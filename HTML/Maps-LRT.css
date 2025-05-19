@@ -1,0 +1,17 @@
+        .lrt-section {
+            background-color: rgba(254, 242, 242, 0.5);
+        }
+        .lrt-map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .lrt-station-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        .capital-train {
+            background-color: #dc2626;
+        }
