@@ -1,5 +1,11 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $startingLine = $_POST['starting_line'];
+    $destinationLine = $_POST['destination_line'];
+    $startingStation = $_POST['starting_station'];
+    $finalStation = $_POST['final_station'];
+}
 class MetroLines {
     public static $lines = [
         1 => [ // Line 1
