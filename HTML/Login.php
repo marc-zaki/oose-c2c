@@ -1,0 +1,94 @@
+<?php
+    require_once '../db_connection.php'; // Include the database connection
+
+    class User {
+        private $pdo; // Database connection instance
+
+        public function __construct($pdo) {
+            $this->pdo = $pdo;
+        }
+
+        public function login($email, $password) {
+            // Login logic using database
+            $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
+            $stmt->execute(['email' => $email]);
+            $user = $stmt->fetch();
+
+            if ($user && password_verify($password, $user['Password'])) {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    // Handle form submission
+    $message = "";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        $user = new User($pdo);
+        $loginResult = $user->login($email, $password);
+
+        if ($loginResult) {
+            header("Location: Homepage.html");
+            exit();
+        } else {
+            $message = "Login failed: Invalid email or password.";
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Transit Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 min-h-screen flex items-center justify-center p-4">
+    <div class="flex flex-col md:flex-row max-w-5xl w-full bg-white rounded-lg overflow-hidden shadow-xl">
+        <div class="w-full md:w-1/2 relative">
+            <img src="/api/placeholder/800/600" alt="Modern metro train at station" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-8">
+            <div class="mb-8 text-center">
+                <div class="mx-auto h-12 w-12 mb-2">
+                    <svg viewBox="0 0 100 100" class="h-full w-full">
+                        <circle cx="50" cy="50" r="40" fill="#1e7a44" />
+                        <path d="M50 10 C20 30, 20 70, 50 90 C80 70, 80 30, 50 10" fill="#226b44" />
+                    </svg>
+                </div>
+                <h2 class="text-xl font-medium text-gray-800">Login</h2>
+            </div>
+
+            <?php if (!empty($message)): ?>
+                <p class="mb-4 text-center text-sm text-red-500"> <?php echo $message; ?> </p>
+            <?php endif; ?>
+
+            <form class="w-full max-w-md" method="POST" action="">
+                <div class="mb-4">
+                    <label for="email" class="block text-xs text-gray-500 mb-1">E-mail</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500">
+                </div>
+
+                <div class="mb-6">
+                    <label for="password" class="block text-xs text-gray-500 mb-1">Password</label>
+                    <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500">
+                </div>
+
+                <button type="submit" class="w-full py-2 rounded bg-gradient-to-r from-green-600 to-purple-500 text-white font-medium hover:opacity-90 transition-opacity">
+                    Login
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-500">Don't have an account? <a href="Signup.php" class="text-green-600 hover:underline">Sign up now</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

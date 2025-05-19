@@ -114,6 +114,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function getPriceByStations(stationCount) {
+        if (stationCount === null || isNaN(stationCount)) return 'N/A';
+        if (stationCount <= 9) return 5;
+        else if (stationCount <= 16) return 7;
+        else return 10;
+    }
+
     function updateTripDetails() {
         const startingLine = startingLineSelect.value;
         const destinationLine = destinationLineSelect.value;
@@ -121,64 +128,53 @@ document.addEventListener('DOMContentLoaded', function() {
         const finalStation = finalStationSelect.value;
 
         // Update transfer visibility
-        const needsTransfer = startingLine !== destinationLine;
+        const needsTransfer = startingLine !== destinationLine && startingLine && destinationLine;
         transferNotice.style.display = needsTransfer ? 'block' : 'none';
 
-        // Update price based on transfer
-        const basePrice = needsTransfer ? 15 : 10;
-        priceDisplay.textContent = basePrice;
-        totalPriceDetail.textContent = `${basePrice} LE`;
-
         // Update trip details
-        startingLineDetail.textContent = `Line ${startingLine.slice(-1)}`;
-        destinationLineDetail.textContent = `Line ${destinationLine.slice(-1)}`;
+        startingLineDetail.textContent = startingLine ? `Line ${startingLine.slice(-1)}` : 'N/A';
+        destinationLineDetail.textContent = destinationLine ? `Line ${destinationLine.slice(-1)}` : 'N/A';
         fromStationDetail.textContent = startingStationSelect.selectedOptions[0]?.text || 'N/A';
         toStationDetail.textContent = finalStationSelect.selectedOptions[0]?.text || 'N/A';
         transferDetail.textContent = needsTransfer ? 'Required' : 'Not Required';
         transferDetail.className = needsTransfer ? 'font-medium text-yellow-600' : 'font-medium';
 
-        // Update station count
-        let stationCount = 0;
-        if (needsTransfer) {
-            // Find a common transfer station between lines
-            // For simplicity, use 'nasser' for Line 1 <-> Line 3, 'sadat' for Line 1 <-> Line 2, 'attaba' for Line 2 <-> Line 3
-            let transferStationIdStart, transferStationIdDest;
-            if ((startingLine === 'line1' && destinationLine === 'line2') || (startingLine === 'line2' && destinationLine === 'line1')) {
-                transferStationIdStart = 'line1-sadat';
-                transferStationIdDest = 'line2-sadat';
-            } else if ((startingLine === 'line1' && destinationLine === 'line3') || (startingLine === 'line3' && destinationLine === 'line1')) {
-                transferStationIdStart = 'line1-nasser';
-                transferStationIdDest = 'line3-nasser';
-            } else if ((startingLine === 'line2' && destinationLine === 'line3') || (startingLine === 'line3' && destinationLine === 'line2')) {
-                transferStationIdStart = 'line2-attaba';
-                transferStationIdDest = 'line3-attaba-line3';
+        // Calculate station count
+        let stationCount = null;
+        if (startingLine && destinationLine && startingStation && finalStation) {
+            if (!needsTransfer) {
+                const startIdx = metroStations[startingLine].findIndex(s => s.id === startingStation);
+                const destIdx = metroStations[startingLine].findIndex(s => s.id === finalStation);
+                if (startIdx !== -1 && destIdx !== -1) {
+                    stationCount = Math.abs(destIdx - startIdx) + 1;
+                }
             } else {
-                // fallback: just use first station as transfer
-                transferStationIdStart = metroStations[startingLine][0].id;
-                transferStationIdDest = metroStations[destinationLine][0].id;
-            }
-
-            const startIdx = metroStations[startingLine].findIndex(s => s.id === startingStation);
-            const transferIdxStart = metroStations[startingLine].findIndex(s => s.id === transferStationIdStart);
-            const transferIdxDest = metroStations[destinationLine].findIndex(s => s.id === transferStationIdDest);
-            const destIdx = metroStations[destinationLine].findIndex(s => s.id === finalStation);
-
-            if (startIdx !== -1 && transferIdxStart !== -1 && transferIdxDest !== -1 && destIdx !== -1) {
-                stationCount = Math.abs(startIdx - transferIdxStart) + Math.abs(destIdx - transferIdxDest);
-            } else {
-                stationCount = 0;
-            }
-        } else {
-            const startIdx = metroStations[startingLine].findIndex(s => s.id === startingStation);
-            const destIdx = metroStations[startingLine].findIndex(s => s.id === finalStation);
-            if (startIdx !== -1 && destIdx !== -1) {
-                stationCount = Math.abs(startIdx - destIdx);
-            } else {
-                stationCount = 0;
+                // Transfer logic: use main transfer stations
+                let transferStationIdStart, transferStationIdDest;
+                if ((startingLine === 'line1' && destinationLine === 'line2') || (startingLine === 'line2' && destinationLine === 'line1')) {
+                    transferStationIdStart = 'line1-sadat';
+                    transferStationIdDest = 'line2-sadat';
+                } else if ((startingLine === 'line1' && destinationLine === 'line3') || (startingLine === 'line3' && destinationLine === 'line1')) {
+                    transferStationIdStart = 'line1-nasser';
+                    transferStationIdDest = 'line3-nasser';
+                } else if ((startingLine === 'line2' && destinationLine === 'line3') || (startingLine === 'line3' && destinationLine === 'line2')) {
+                    transferStationIdStart = 'line2-attaba';
+                    transferStationIdDest = 'line3-attaba-line3';
+                }
+                const startIdx = metroStations[startingLine].findIndex(s => s.id === startingStation);
+                const transferIdxStart = metroStations[startingLine].findIndex(s => s.id === transferStationIdStart);
+                const transferIdxDest = metroStations[destinationLine].findIndex(s => s.id === transferStationIdDest);
+                const destIdx = metroStations[destinationLine].findIndex(s => s.id === finalStation);
+                if (startIdx !== -1 && transferIdxStart !== -1 && transferIdxDest !== -1 && destIdx !== -1) {
+                    stationCount = Math.abs(transferIdxStart - startIdx) + Math.abs(destIdx - transferIdxDest) + 1;
+                }
             }
         }
-
-        distanceDetail.textContent = `${stationCount} Stations`;
+        distanceDetail.textContent = stationCount !== null ? `${stationCount} Stations` : 'N/A';
+        // Update price
+        const price = getPriceByStations(stationCount);
+        priceDisplay.textContent = price;
+        totalPriceDetail.textContent = `${price} LE`;
     }
 
     // Event Listeners
