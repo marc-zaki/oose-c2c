@@ -6,6 +6,7 @@
     <title>Mwasalat Misr Booking - C2C Transit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/JS/mwasalatMisrSelectStation.js"></script>
 </head>
 <body class="min-h-screen bg-gray-50">
     <!-- Navigation -->
@@ -99,34 +100,55 @@
                     <div class="lg:col-span-2">
                         <div class="relative">
                             <!-- Bus Route Selector -->
-                            <div class="mb-6">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Select Bus Route</label>
-                                <select id="bus-route" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                    <option value="">Choose a route</option>
-                                    <option value="route1">Route 1</option>
-                                    <option value="route2" selected>Route 2</option>
-                                    <option value="route3">Route 3</option>
-                                </select>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Bus Line</label>
+                                    <select id="bus-line" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        <option value="">Choose bus line</option>
+                                        <option value="NC2">NC2 - Al-Lotus – Katameya (اللوتس – القطامية)</option>
+                                        <option value="NC3">NC3 - Al-Lotus – 3rd Settlement (اللوتس – التجمع الثالث)</option>
+                                        <option value="NC4">NC4 - 1st Settlement – Factory (التجمع الأول – المصنع)</option>
+                                        <option value="NC5">NC5 - 5th Settlement – Technological (التجمع الخامس – التكنولوجية)</option>
+                                        <option value="NC6">NC6 - Gas – Factory (الغاز – المصنع)</option>
+                                        <option value="M5">M5 - Al-Lotus – Madinat Nasr Riyadh (اللوتس – م.م. رياض)</option>
+                                        <option value="M6">M6 - Al-Lotus – Saray El Qobba (اللوتس – سراي القبة)</option>
+                                        <option value="M8">M8 - Al-Lotus – Giza (اللوتس – م. الجيزة)</option>
+                                        <option value="M9">M9 - Al-Lotus – Maadi (اللوتس – المعادي)</option>
+                                        <option value="NS9">NS9 - Al-Lotus – Madinat El Shorouk (اللوتس – مدينة الشروق)</option>
+                                        <option value="NC7">NC7 - 1st Settlement – Adly Mansour (التجمع الأول – محطة عدلي منصور)</option>
+                                        <option value="NC8">NC8 - 3rd Settlement – Muqattam (التجمع الثالث – المقطم)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Destination Line</label>
+                                    <select id="destination-line" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                        <option value="">Choose destination line</option>
+                                        <option value="NC2">NC2 - Al-Lotus – Katameya (اللوتس – القطامية)</option>
+                                        <option value="NC3">NC3 - Al-Lotus – 3rd Settlement (اللوتس – التجمع الثالث)</option>
+                                        <option value="NC4">NC4 - 1st Settlement – Factory (التجمع الأول – المصنع)</option>
+                                        <option value="NC5">NC5 - 5th Settlement – Technological (التجمع الخامس – التكنولوجية)</option>
+                                        <option value="NC6">NC6 - Gas – Factory (الغاز – المصنع)</option>
+                                        <option value="M5">M5 - Al-Lotus – Madinat Nasr Riyadh (اللوتس – م.م. رياض)</option>
+                                        <option value="M6">M6 - Al-Lotus – Saray El Qobba (اللوتس – سراي القبة)</option>
+                                        <option value="M8">M8 - Al-Lotus – Giza (اللوتس – م. الجيزة)</option>
+                                        <option value="M9">M9 - Al-Lotus – Maadi (اللوتس – المعادي)</option>
+                                        <option value="NS9">NS9 - Al-Lotus – Madinat El Shorouk (اللوتس – مدينة الشروق)</option>
+                                        <option value="NC7">NC7 - 1st Settlement – Adly Mansour (التجمع الأول – محطة عدلي منصور)</option>
+                                        <option value="NC8">NC8 - 3rd Settlement – Muqattam (التجمع الثالث – المقطم)</option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <!-- Stop Selection -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Starting Stop</label>
                                     <select id="starting-stop" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         <option value="">Select starting stop</option>
-                                        <option value="stopX">Stop X</option>
-                                        <option value="stopY" selected>Stop Y</option>
-                                        <option value="stopZ">Stop Z</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Final Stop</label>
                                     <select id="final-stop" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                                         <option value="">Select final stop</option>
-                                        <option value="stopX">Stop X</option>
-                                        <option value="stopY">Stop Y</option>
-                                        <option value="stopZ" selected>Stop Z</option>
                                     </select>
                                 </div>
                             </div>
@@ -181,33 +203,28 @@
                             <div class="space-y-4">
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Transport</span>
-                                    <span class="font-medium">Mwasalat Misr</span>
+                                    <span class="font-medium" id="sidebar-transport">Mwasalat Misr</span>
                                 </div>
-                                
                                 <div class="flex justify-between">
-                                    <span class="text-gray-600">Route</span>
-                                    <span class="font-medium">Route 2</span>
+                                    <span class="text-gray-600">Line</span>
+                                    <span class="font-medium" id="sidebar-line">Line 111</span>
                                 </div>
-                                
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">From</span>
-                                    <span class="font-medium">Stop Y</span>
+                                    <span class="font-medium" id="sidebar-from">Abbasiya</span>
                                 </div>
-                                
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">To</span>
-                                    <span class="font-medium">Stop Z</span>
+                                    <span class="font-medium" id="sidebar-to">6th of October</span>
                                 </div>
-                                
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Distance</span>
-                                    <span class="font-medium">15 km</span>
+                                    <span class="font-medium" id="sidebar-distance">N/A</span>
                                 </div>
-                                
                                 <div class="border-t pt-4">
                                     <div class="flex justify-between text-lg font-bold">
                                         <span>Total Price</span>
-                                        <span class="text-blue-600">20 LE</span>
+                                        <span class="text-blue-600" id="sidebar-total-price">N/A</span>
                                     </div>
                                 </div>
                             </div>
@@ -286,3 +303,4 @@
     </footer>
 </body>
 </html>
+``` 

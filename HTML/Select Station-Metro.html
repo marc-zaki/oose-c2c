@@ -98,15 +98,26 @@
                     <!-- Route Selection -->
                     <div class="lg:col-span-2">
                         <div class="relative">
-                            <!-- Metro Line Selector -->
-                            <div class="mb-6">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Select Metro Line</label>
-                                <select id="metro-line" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent">
-                                    <option value="">Choose a line</option>
-                                    <option value="line1">Line 1</option>
-                                    <option value="line2" selected>Line 2</option>
-                                    <option value="line3">Line 3</option>
-                                </select>
+                            <!-- Metro Line Selectors -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Starting Line</label>
+                                    <select id="starting-line" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent">
+                                        <option value="">Choose starting line</option>
+                                        <option value="line1">Line 1 (Helwan - El Marg)</option>
+                                        <option value="line2" selected>Line 2 (Shobra - Giza)</option>
+                                        <option value="line3">Line 3 (Airport - Adly Mansour)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Destination Line</label>
+                                    <select id="destination-line" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent">
+                                        <option value="">Choose destination line</option>
+                                        <option value="line1">Line 1 (Helwan - El Marg)</option>
+                                        <option value="line2">Line 2 (Shobra - Giza)</option>
+                                        <option value="line3" selected>Line 3 (Airport - Adly Mansour)</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <!-- Station Selection -->
@@ -115,24 +126,54 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Starting Station</label>
                                     <select id="starting-station" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent">
                                         <option value="">Select starting station</option>
-                                        <option value="station1">Station 1</option>
-                                        <option value="station2" selected>Station 2</option>
-                                        <option value="station3">Station 3</option>
-                                        <option value="station4">Station 4</option>
-                                        <option value="station5">Station 5</option>
-                                        <option value="station6">Station 6</option>
+                                        <!-- Line 2 Stations (Default Selected Line) -->
+                                        <option value="line2-shobra" selected>Shobra El Kheima</option>
+                                        <option value="line2-koleyet-zeraa">Koleyet El Zeraa</option>
+                                        <option value="line2-mezallat">Mezallat</option>
+                                        <option value="line2-khalafawy">Khalafawy</option>
+                                        <option value="line2-st-teresa">St. Teresa</option>
+                                        <option value="line2-rod-el-farag">Rod El-Farag</option>
+                                        <option value="line2-massara">Massara</option>
+                                        <option value="line2-attaba">Attaba</option>
+                                        <option value="line2-mohamed-naguib">Mohamed Naguib</option>
+                                        <option value="line2-sadat">Sadat</option>
+                                        <option value="line2-opera">Opera</option>
+                                        <option value="line2-dokki">Dokki</option>
+                                        <option value="line2-cairo-university">Cairo University</option>
+                                        <option value="line2-faisal">Faisal</option>
+                                        <option value="line2-giza">Giza</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Final Station</label>
                                     <select id="final-station" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent">
                                         <option value="">Select final station</option>
-                                        <option value="station1">Station 1</option>
-                                        <option value="station2">Station 2</option>
-                                        <option value="station3">Station 3</option>
-                                        <option value="station4">Station 4</option>
-                                        <option value="station5" selected>Station 5</option>
-                                        <option value="station6">Station 6</option>
+                                        <!-- Line 3 Stations (Default Selected Line) -->
+                                        <option value="line3-adly-mansour">Adly Mansour</option>
+                                        <option value="line3-el-haykestep">El Haykestep</option>
+                                        <option value="line3-omar-ibn-el-khattab">Omar Ibn El-Khattab</option>
+                                        <option value="line3-qobaa">Qoba'a</option>
+                                        <option value="line3-hesham-barakat">Hesham Barakat</option>
+                                        <option value="line3-el-nozha">El-Nozha</option>
+                                        <option value="line3-airport" selected>Cairo Airport</option>
+                                        <option value="line3-ahmed-galal">Ahmed Galal</option>
+                                        <option value="line3-haroun">Haroun</option>
+                                        <option value="line3-heliopolis">Heliopolis Square</option>
+                                        <option value="line3-alf-maskan">Alf Maskan</option>
+                                        <option value="line3-cairo-stadium">Cairo Stadium</option>
+                                        <option value="line3-kolleyet-el-banat">Kolleyet El Banat</option>
+                                        <option value="line3-cairo-fair">Cairo Fair</option>
+                                        <option value="line3-abbassia">Abbassia</option>
+                                        <option value="line3-abdou-pasha">Abdou Pasha</option>
+                                        <option value="line3-el-geish">El-Geish</option>
+                                        <option value="line3-bab-el-shaaria">Bab El-Shaaria</option>
+                                        <option value="line3-attaba-line3">Attaba</option>
+                                        <option value="line3-nasser">Nasser</option>
+                                        <option value="line3-maspero">Maspero</option>
+                                        <option value="line3-zamalek">Zamalek</option>
+                                        <option value="line3-kit-kat">Kit Kat</option>
+                                        <option value="line3-sudan">Sudan Street</option>
+                                        <option value="line3-imbaba">Imbaba</option>
                                     </select>
                                 </div>
                             </div>
@@ -150,23 +191,38 @@
                                     <div class="relative z-10 flex items-center justify-between px-8">
                                         <div class="flex flex-col items-center">
                                             <div class="w-4 h-4 bg-green-500 rounded-full mb-2"></div>
-                                            <span class="text-sm font-medium">Station 2</span>
-                                            <span class="text-xs text-gray-600">(Starting)</span>
+                                            <span class="text-sm font-medium">Shobra El Kheima</span>
+                                            <span class="text-xs text-gray-600">(Line 2 - Starting)</span>
                                         </div>
-                                        <div class="flex-1 h-1 bg-green-400 mx-4"></div>
+                                        <div class="flex-1 flex items-center mx-4">
+                                            <div class="flex-1 h-1 bg-green-400"></div>
+                                            <div class="w-6 h-6 bg-yellow-500 rounded-full mx-2 flex items-center justify-center">
+                                                <i class="fas fa-exchange-alt text-white text-xs"></i>
+                                            </div>
+                                            <div class="flex-1 h-1 bg-purple-400"></div>
+                                        </div>
                                         <div class="flex flex-col items-center">
                                             <div class="w-4 h-4 bg-purple-600 rounded-full mb-2"></div>
-                                            <span class="text-sm font-medium">Station 5</span>
-                                            <span class="text-xs text-gray-600">(Destination)</span>
+                                            <span class="text-sm font-medium">Cairo Airport</span>
+                                            <span class="text-xs text-gray-600">(Line 3 - Destination)</span>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- Transfer Notice -->
+                                <div class="text-center mt-4">
+                                    <div class="bg-white rounded-lg px-4 py-2 inline-block">
+                                        <span class="text-yellow-600 text-sm font-medium">
+                                            <i class="fas fa-exchange-alt mr-1"></i>Transfer required between lines
+                                        </span>
+                                    </div>
+                                </div>
+
                                 <!-- Price Display -->
-                                <div class="text-center mt-8">
+                                <div class="text-center mt-4">
                                     <div class="bg-white rounded-lg shadow-md px-6 py-4 inline-block">
                                         <span class="text-gray-600 text-lg">Price: </span>
-                                        <span class="text-2xl font-bold text-green-600">8</span>
+                                        <span class="text-2xl font-bold text-green-600">15</span>
                                         <span class="text-gray-600 text-lg"> LE</span>
                                     </div>
                                 </div>
@@ -193,29 +249,39 @@
                                 </div>
                                 
                                 <div class="flex justify-between">
-                                    <span class="text-gray-600">Line</span>
+                                    <span class="text-gray-600">Starting Line</span>
                                     <span class="font-medium">Line 2</span>
                                 </div>
                                 
                                 <div class="flex justify-between">
+                                    <span class="text-gray-600">Destination Line</span>
+                                    <span class="font-medium">Line 3</span>
+                                </div>
+                                
+                                <div class="flex justify-between">
                                     <span class="text-gray-600">From</span>
-                                    <span class="font-medium">Station 2</span>
+                                    <span class="font-medium">Shobra El Kheima</span>
                                 </div>
                                 
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">To</span>
-                                    <span class="font-medium">Station 5</span>
+                                    <span class="font-medium">Cairo Airport</span>
                                 </div>
                                 
                                 <div class="flex justify-between">
-                                    <span class="text-gray-600">Distance</span>
-                                    <span class="font-medium">3 Stations</span>
+                                    <span class="text-gray-600">Transfer</span>
+                                    <span class="font-medium text-yellow-600">Required</span>
+                                </div>
+                                
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Total Stations</span>
+                                    <span class="font-medium">10 Stations</span>
                                 </div>
                                 
                                 <div class="border-t pt-4">
                                     <div class="flex justify-between text-lg font-bold">
                                         <span>Total Price</span>
-                                        <span class="text-green-600">8 LE</span>
+                                        <span class="text-green-600">15 LE</span>
                                     </div>
                                 </div>
                             </div>
@@ -285,10 +351,13 @@
                         <li><a href="/HTML/FAQ.html" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
                     </ul>
                 </div>
+            </div>
             <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
                 <p>&copy; 2025 C2C. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    <script src="/JS/metroSelectStation.js"></script>
+
 </body>
 </html>
