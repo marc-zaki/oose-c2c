@@ -61,58 +61,35 @@ class User {
         return true;
     }
 
-    public function updateProfile() {
-        // Implement profile update logic
+    public function updateProfile($newFirstName, $newLastName, $newEmail, $newPassword = null) {
+        $params = [
+            'firstName' => $newFirstName,
+            'lastName' => $newLastName,
+            'email' => $newEmail,
+            'ID' => $this->ID
+        ];
+        $sql = "UPDATE user SET F_name = :firstName, L_name = :lastName, email = :email";
+        if ($newPassword) {
+            $sql .= ", Password = :password";
+            $params['password'] = password_hash($newPassword, PASSWORD_BCRYPT);
+        }
+        $sql .= " WHERE ID = :ID";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute($params);
     }
 
     public function deleteProfile() {
-        // Implement profile deletion logic
+        $stmt = $this->pdo->prepare("DELETE FROM user WHERE ID = :ID");
+        return $stmt->execute(['ID' => $this->ID]);
     }
 
     public function logout() {
-        // Implement logout logic
-    }
-}
-
-class Admin extends User {
-    public function addStation() {
-        // Implement add station logic
-    }
-
-    public function removeStation() {
-        // Implement remove station logic
-    }
-
-    public function deleteUserAccount() {
-        // Implement delete user account logic
-    }
-
-    public function updateTicketPrice() {
-        // Implement update ticket price logic
-    }
-
-    public function addLine() {
-        // Implement add line logic
-    }
-
-    public function applyDiscount() {
-        // Implement apply discount logic
-    }
-}
-
-class Customer extends User {
-    protected string $discountType;
-    protected int $numberofPoints;
-    protected bool $mwasalatCard;
-
-    public function __construct($pdo, $ID = null, $firstName = '', $lastName = '', $password = '', $email = '', $social_security_number = 0, $discountType = '', $numberofPoints = 0, $mwasalatCard = false) {
-        parent::__construct($pdo, $ID, $firstName, $lastName, $password, $email, $social_security_number);
-        $this->discountType = $discountType;
-        $this->numberofPoints = $numberofPoints;
-        $this->mwasalatCard = $mwasalatCard;
-    }
-
-    public function viewTripHistory() {
-        // Implement view trip history logic
+        // If using sessions
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset();
+        session_destroy();
+        return true;
     }
 }
