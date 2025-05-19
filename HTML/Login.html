@@ -8,14 +8,11 @@
 </head>
 <body class="bg-green-50 min-h-screen flex items-center justify-center p-4">
     <div class="flex flex-col md:flex-row max-w-5xl w-full bg-white rounded-lg overflow-hidden shadow-xl">
-        <!-- Left side - Train Image -->
         <div class="w-full md:w-1/2 relative">
             <img src="/api/placeholder/800/600" alt="Modern metro train at station" class="w-full h-full object-cover" />
         </div>
         
-        <!-- Right side - Sign Up Form -->
         <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-8">
-            <!-- Logo and Title -->
             <div class="mb-8 text-center">
                 <div class="mx-auto h-12 w-12 mb-2">
                     <svg viewBox="0 0 100 100" class="h-full w-full">
@@ -26,9 +23,7 @@
                 <h2 class="text-xl font-medium text-gray-800">Sign up</h2>
             </div>
             
-            <!-- Form -->
             <form class="w-full max-w-md">
-                <!-- Name fields (side by side) -->
                 <div class="flex gap-4 mb-4">
                     <div class="w-1/2">
                         <label for="firstName" class="block text-xs text-gray-500 mb-1">First Name</label>
@@ -40,26 +35,22 @@
                     </div>
                 </div>
                 
-                <!-- National ID -->
                 <div class="mb-4">
                     <label for="nationalId" class="block text-xs text-gray-500 mb-1">National ID</label>
                     <input type="text" id="nationalId" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500">
                 </div>
                 
-                <!-- Email -->
                 <div class="mb-4">
                     <label for="email" class="block text-xs text-gray-500 mb-1">E-mail</label>
                     <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500">
                     <p class="text-xs text-gray-400 mt-1">Optional</p>
                 </div>
                 
-                <!-- Password -->
                 <div class="mb-6">
                     <label for="password" class="block text-xs text-gray-500 mb-1">Password</label>
                     <input type="password" id="password" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500">
                 </div>
                 
-                <!-- Sign Up Button -->
                 <button type="submit" class="w-full py-2 rounded bg-gradient-to-r from-green-600 to-purple-500 text-white font-medium hover:opacity-90 transition-opacity">
                     Sign Up
                 </button>
