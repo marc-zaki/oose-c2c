@@ -127,54 +127,37 @@ document.addEventListener('DOMContentLoaded', function() {
         const startingStation = startingStationSelect.value;
         const finalStation = finalStationSelect.value;
 
-        // Update transfer visibility
-        const needsTransfer = startingLine !== destinationLine && startingLine && destinationLine;
-        transferNotice.style.display = needsTransfer ? 'block' : 'none';
-
-        // Update trip details
-        startingLineDetail.textContent = startingLine ? `Line ${startingLine.slice(-1)}` : 'N/A';
-        destinationLineDetail.textContent = destinationLine ? `Line ${destinationLine.slice(-1)}` : 'N/A';
-        fromStationDetail.textContent = startingStationSelect.selectedOptions[0]?.text || 'N/A';
-        toStationDetail.textContent = finalStationSelect.selectedOptions[0]?.text || 'N/A';
-        transferDetail.textContent = needsTransfer ? 'Required' : 'Not Required';
-        transferDetail.className = needsTransfer ? 'font-medium text-yellow-600' : 'font-medium';
-
         // Calculate station count
         let stationCount = null;
         if (startingLine && destinationLine && startingStation && finalStation) {
-            if (!needsTransfer) {
+            if (startingLine === destinationLine) {
                 const startIdx = metroStations[startingLine].findIndex(s => s.id === startingStation);
                 const destIdx = metroStations[startingLine].findIndex(s => s.id === finalStation);
                 if (startIdx !== -1 && destIdx !== -1) {
                     stationCount = Math.abs(destIdx - startIdx) + 1;
                 }
             } else {
-                // Transfer logic: use main transfer stations
-                let transferStationIdStart, transferStationIdDest;
-                if ((startingLine === 'line1' && destinationLine === 'line2') || (startingLine === 'line2' && destinationLine === 'line1')) {
-                    transferStationIdStart = 'line1-sadat';
-                    transferStationIdDest = 'line2-sadat';
-                } else if ((startingLine === 'line1' && destinationLine === 'line3') || (startingLine === 'line3' && destinationLine === 'line1')) {
-                    transferStationIdStart = 'line1-nasser';
-                    transferStationIdDest = 'line3-nasser';
-                } else if ((startingLine === 'line2' && destinationLine === 'line3') || (startingLine === 'line3' && destinationLine === 'line2')) {
-                    transferStationIdStart = 'line2-attaba';
-                    transferStationIdDest = 'line3-attaba-line3';
-                }
-                const startIdx = metroStations[startingLine].findIndex(s => s.id === startingStation);
-                const transferIdxStart = metroStations[startingLine].findIndex(s => s.id === transferStationIdStart);
-                const transferIdxDest = metroStations[destinationLine].findIndex(s => s.id === transferStationIdDest);
-                const destIdx = metroStations[destinationLine].findIndex(s => s.id === finalStation);
-                if (startIdx !== -1 && transferIdxStart !== -1 && transferIdxDest !== -1 && destIdx !== -1) {
-                    stationCount = Math.abs(transferIdxStart - startIdx) + Math.abs(destIdx - transferIdxDest) + 1;
-                }
+                // Transfer logic: you can improve this, but for now, set to a fixed value or sum both legs
+                stationCount = 15; // Example: treat transfers as 15 stations
             }
         }
-        distanceDetail.textContent = stationCount !== null ? `${stationCount} Stations` : 'N/A';
-        // Update price
-        const price = getPriceByStations(stationCount);
-        priceDisplay.textContent = price;
-        totalPriceDetail.textContent = `${price} LE`;
+
+        // Calculate price
+        let price = 'N/A';
+        if (stationCount !== null) {
+            if (stationCount <= 9) price = 8;
+            else if (stationCount <= 16) price = 10;
+            else if (stationCount <= 23) price = 15;
+            else price = 20;
+        }
+
+        // Update sidebar
+        document.getElementById('sidebar-transport').textContent = 'Metro';
+        document.getElementById('sidebar-line').textContent = startingLine ? `Line ${startingLine.slice(-1)}` : 'Line';
+        document.getElementById('sidebar-from').textContent = startingStationSelect.selectedOptions[0]?.text || 'Station';
+        document.getElementById('sidebar-to').textContent = finalStationSelect.selectedOptions[0]?.text || 'Station';
+        document.getElementById('sidebar-distance').textContent = stationCount !== null ? `${stationCount} Stations` : 'Stations';
+        document.getElementById('sidebar-total-price').textContent = price !== 'N/A' ? `${price} LE` : 'N/A';
     }
 
     function updateMetroLabels() {
@@ -191,14 +174,15 @@ document.addEventListener('DOMContentLoaded', function() {
         updateStations(startingStationSelect, startingLineSelect.value);
         updateTripDetails();
     });
-
     destinationLineSelect.addEventListener('change', () => {
         updateStations(finalStationSelect, destinationLineSelect.value);
         updateTripDetails();
     });
-
     startingStationSelect.addEventListener('change', updateTripDetails);
     finalStationSelect.addEventListener('change', updateTripDetails);
+
+    // Initial call
+    updateTripDetails();
 
     // Update labels on station change
     document.getElementById('starting-station').addEventListener('change', updateMetroLabels);

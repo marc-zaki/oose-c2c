@@ -89,48 +89,48 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2">
-                        <div class="relative">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Starting Station</label>
-                                    <select id="starting-station" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                                        <option value="">Select starting station</option>
-                                        <option value="adly-mansour">Adly Mansour</option>
-                                        <option value="el-obour">El Obour</option>
-                                        <option value="future">Future</option>
-                                        <option value="el-mostakbal1">El Mostakbal 1</option>
-                                        <option value="el-mostakbal2">El Mostakbal 2</option>
-                                        <option value="el-shorouk">El Shorouk</option>
-                                        <option value="new-hisham-barakat">New Hisham Barakat</option>
-                                        <option value="el-badr">El Badr</option>
-                                        <option value="el-rubiki">El Rubiki</option>
-                                        <option value="capital-gardens">Capital Gardens</option>
-                                        <option value="new-administrative-capital">New Administrative Capital</option>
-                                        <option value="arts-culture-city">Arts & Culture City</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Final Station</label>
-                                    <select id="final-station" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                                        <option value="">Select final station</option>
-                                        <option value="adly-mansour">Adly Mansour</option>
-                                        <option value="el-obour">El Obour</option>
-                                        <option value="future">Future</option>
-                                        <option value="el-mostakbal1">El Mostakbal 1</option>
-                                        <option value="el-mostakbal2">El Mostakbal 2</option>
-                                        <option value="el-shorouk">El Shorouk</option>
-                                        <option value="new-hisham-barakat">New Hisham Barakat</option>
-                                        <option value="el-badr">El Badr</option>
-                                        <option value="el-rubiki">El Rubiki</option>
-                                        <option value="capital-gardens">Capital Gardens</option>
-                                        <option value="new-administrative-capital">New Administrative Capital</option>
-                                        <option value="arts-culture-city">Arts & Culture City</option>
-                                    </select>
-                                </div>
-                            </div>
-
+                <form id="lrt-booking-form">
+                    <input type="hidden" name="starting_line" value="lrt-line">
+                    <input type="hidden" name="destination_line" value="lrt-line">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Starting Station</label>
+                            <select name="starting_station" id="starting-station" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                                <option value="">Select starting station</option>
+                                <option value="adly-mansour">Adly Mansour</option>
+                                <option value="el-obour">El Obour</option>
+                                <option value="future">Future</option>
+                                <option value="el-mostakbal1">El Mostakbal 1</option>
+                                <option value="el-mostakbal2">El Mostakbal 2</option>
+                                <option value="el-shorouk">El Shorouk</option>
+                                <option value="new-hisham-barakat">New Hisham Barakat</option>
+                                <option value="el-badr">El Badr</option>
+                                <option value="el-rubiki">El Rubiki</option>
+                                <option value="capital-gardens">Capital Gardens</option>
+                                <option value="new-administrative-capital">New Administrative Capital</option>
+                                <option value="arts-culture-city">Arts & Culture City</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Final Station</label>
+                            <select name="final_station" id="final-station" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                                <option value="">Select final station</option>
+                                <option value="adly-mansour">Adly Mansour</option>
+                                <option value="el-obour">El Obour</option>
+                                <option value="future">Future</option>
+                                <option value="el-mostakbal1">El Mostakbal 1</option>
+                                <option value="el-mostakbal2">El Mostakbal 2</option>
+                                <option value="el-shorouk">El Shorouk</option>
+                                <option value="new-hisham-barakat">New Hisham Barakat</option>
+                                <option value="el-badr">El Badr</option>
+                                <option value="el-rubiki">El Rubiki</option>
+                                <option value="capital-gardens">Capital Gardens</option>
+                                <option value="new-administrative-capital">New Administrative Capital</option>
+                                <option value="arts-culture-city">Arts & Culture City</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center">
                             <div class="relative bg-gradient-to-r from-pink-200 to-purple-200 rounded-2xl p-8 mb-6">
                                 <div class="relative">
                                     <div class="absolute inset-0 flex items-center justify-center">
@@ -149,9 +149,11 @@
                                             <span class="text-sm font-medium">Station D</span>
                                             <span class="text-xs text-gray-600">(Destination)</span>
                                         </div>
+                                        
                                     </div>
+                                    
                                 </div>
-
+                                    
                                 <div class="text-center mt-8">
                                     <div class="bg-white rounded-lg shadow-md px-6 py-4 inline-block">
                                         <span class="text-gray-600 text-lg">Price: </span>
@@ -162,8 +164,9 @@
                             </div>
 
                             <div class="text-center">
-                                <button id="confirm-booking" class="bg-gradient-to-r from-red-500 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-red-600 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                                <button id="confirm-booking" type="submit" class="bg-gradient-to-r from-red-500 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-red-600 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                                     Confirm Booking
+                                    
                                 </button>
                             </div>
                         </div>
@@ -272,16 +275,14 @@
             </div>
         </div>
     </footer>
+    
     <script src="/JS/lrtSelectStation.js"></script>
     <script>
-document.getElementById('confirm-booking').addEventListener('click', async function(e) {
+document.getElementById('lrt-booking-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const start = document.getElementById('starting-station').value;
-    const end = document.getElementById('final-station').value;
-    const formData = new FormData();
-    formData.append('starting_station', start);
-    formData.append('final_station', end);
-    formData.append('ticketType', 'lrt'); // Factory will create LRT_Ticket
+    const form = e.target;
+    const formData = new FormData(form);
+    formData.append('ticketType', 'lrt'); // This is important for your backend
 
     const response = await fetch('../Controller/book_trip.php', {
         method: 'POST',
@@ -289,9 +290,9 @@ document.getElementById('confirm-booking').addEventListener('click', async funct
     });
     const result = await response.json();
 
-    // Show result to user
     if (result.success) {
-        alert('LRT ticket booked!\n' + (result.ticket_details || ''));
+        alert(result.ticket_details || 'Booking successful!');
+        window.location.href = "PaymentGateway.html"; // Redirect to payment gateway
     } else {
         alert(result.message || 'Booking failed.');
     }

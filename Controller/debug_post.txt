@@ -1,0 +1,8 @@
+Array
+(
+    [starting_line] => lrt-line
+    [destination_line] => lrt-line
+    [starting_station] => 
+    [final_station] => 
+    [ticketType] => lrt
+)

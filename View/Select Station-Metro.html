@@ -199,7 +199,40 @@
                             </button>
                         </div>
                     </div>
-                    
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-50 rounded-xl p-6 space-y-6">
+                            <h3 class="text-lg font-bold text-gray-900">Trip Details</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Transport</span>
+                                    <span class="font-medium" id="sidebar-transport">Metro</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Line</span>
+                                    <span class="font-medium" id="sidebar-line">Line</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">From</span>
+                                    <span class="font-medium" id="sidebar-from">Station</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">To</span>
+                                    <span class="font-medium" id="sidebar-to">Station</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Distance</span>
+                                    <span class="font-medium" id="sidebar-distance">Stations</span>
+                                </div>
+                                <div class="border-t pt-4">
+                                    <div class="flex justify-between text-lg font-bold">
+                                        <span>Total Price</span>
+                                        <span class="text-red-600" id="sidebar-total-price">8 LE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
                 
             </div>
@@ -289,7 +322,7 @@ document.querySelector('form').addEventListener('submit', async function(e) {
     // Show result to user
     if (result.success) {
         alert(result.ticket_details || 'Booking successful!');
-        window.location.href = "Payment Screen.html";
+        window.location.href = "PaymentGateway.html";
     } else {
         alert(result.message || 'Booking failed.');
     }
