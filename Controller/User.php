@@ -26,12 +26,16 @@ class User {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['Password'])) {
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            $_SESSION['user_id'] = $user['User_ID'];
             return true;
         }
         return false;
     }
 
-    public function signup($socialSecurityNumber, $email, $points, $firstName, $lastName, $password, $userID = 0) {
+    public function signup($socialSecurityNumber, $email, $points, $firstName, $lastName, $password) {
         $stmt = $this->pdo->prepare("SELECT * FROM user WHERE SSN = :socialSecurityNumber");
         $stmt->execute(['socialSecurityNumber' => $socialSecurityNumber]);
         if ($stmt->fetch()) {
@@ -47,8 +51,7 @@ class User {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO user (SSN, email, Points, F_name, L_name, Password, User_ID) 
-             VALUES (:socialSecurityNumber, :email, :points, :firstName, :lastName, :password, :userID)"
+            "INSERT INTO user (SSN, email, Points, F_name, L_name, Password) VALUES (:socialSecurityNumber, :email, :points, :firstName, :lastName, :password)"
         );
         $stmt->execute([
             'socialSecurityNumber' => $socialSecurityNumber,
@@ -56,8 +59,7 @@ class User {
             'points' => $points,
             'firstName' => $firstName,
             'lastName' => $lastName,
-            'password' => $hashedPassword,
-            'userID' => $userID
+            'password' => $hashedPassword
         ]);
 
         return true;

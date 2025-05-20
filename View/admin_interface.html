@@ -12,7 +12,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <div class="flex items-center">
-                <a href="admin_interface.html" class="flex items-center">
+                <a href="Login.html" class="flex items-center">
                     <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"/>
@@ -43,10 +43,10 @@
                 Welcome, <span class="text-green-500">Admin</span>
             </h1>
             <p class="text-lg text-gray-600 leading-relaxed">
-                Manage users, view reports, and configure the C2C system from this dashboard.
+                Manage users, edit stations, lines, and configure the C2C system from this dashboard.
             </p>
             <div class="pt-4">
-                <a href="#" class="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <a href="admin-viewUsers.php" class="bg-gradient-to-r from-green-500 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Go to User Management
                 </a>
             </div>
@@ -67,6 +67,7 @@
         <div class="text-center mb-12">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">Admin Tools</h2>
         </div>
+        <a href="admin-viewUsers.php" class="block">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
                 <h3 class="text-xl font-bold text-gray-900 mb-4">User Management</h3>
@@ -74,14 +75,17 @@
                     View, edit, or remove users from the system.
                 </p>
             </div>
-            <div class="bg-blue-50 rounded-2xl p-8 text-center border-2 border-blue-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Reports</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Access system usage and ticket sales reports.
-                </p>
-            </div>
+            </a>
+            <a href="admin-viewStations.php" class="block">
+                <div class="bg-blue-50 rounded-2xl p-8 text-center border-2 border-blue-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Station/Line Management</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Access system usage and ticket sales reports.
+                    </p>
+                </div>
+            </a>
             <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Settings</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Coming Soon</h3>
                 <p class="text-gray-600 leading-relaxed">
                     Configure system settings and permissions.
                 </p>

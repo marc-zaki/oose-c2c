@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+
 header('Content-Type: application/json');
 
 require_once __DIR__ . '/User.php';
@@ -14,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check for admin credentials
     if ($email === 'admin@oose.c2c.com' && $password === 'root') {
+        $_SESSION['user_id'] = 'admin';
         echo json_encode(['success' => true, 'role' => 'admin']);
         exit;
     }
