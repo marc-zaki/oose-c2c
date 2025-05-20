@@ -3,8 +3,6 @@ session_start();
 require_once '../Model/db_connection.php';
 require_once '../Controller/User.php';
 
-// DEBUG: Remove after testing
-error_log('Session user_id: ' . ($_SESSION['user_id'] ?? 'NOT SET'));
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: Login.html');
@@ -12,19 +10,17 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = $_SESSION['user_id'];
-$pdo = OpenCon();
 
 // Fetch user info
 $stmt = $pdo->prepare('SELECT * FROM user WHERE User_ID = ?');
 $stmt->execute([$userId]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// DEBUG: Remove after testing
-error_log('Fetched user: ' . print_r($user, true));
 
-// Fetch trip history (example, adjust table/fields as needed)
+
+// Fetch trip history for the user
 $trips = [];
-$tripStmt = $pdo->prepare('SELECT * FROM trip WHERE user_id = ? ORDER BY date DESC LIMIT 10');
+$tripStmt = $pdo->prepare('SELECT * FROM ticket WHERE User_ID = ? ORDER BY Ticket_ID DESC LIMIT 10');
 $tripStmt->execute([$userId]);
 $trips = $tripStmt->fetchAll(PDO::FETCH_ASSOC);
 
