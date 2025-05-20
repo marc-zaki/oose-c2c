@@ -59,18 +59,14 @@
         });
         const result = await response.json();
 
-        // Show error or redirect
         if (result.success) {
-            window.location.href = 'Homepage.html'; // Change to your actual homepage file
-        } else {
-            let msg = document.querySelector('#login-message');
-            if (!msg) {
-                msg = document.createElement('p');
-                msg.id = 'login-message';
-                msg.className = 'mb-4 text-center text-sm text-red-500';
-                form.parentNode.insertBefore(msg, form);
+            if (result.role === 'admin') {
+                window.location.href = 'admin_interface.html';
+            } else {
+                window.location.href = 'Homepage.html';
             }
-            msg.textContent = result.message || 'Login failed.';
+        } else {
+            // Show error message
         }
     });
     </script>

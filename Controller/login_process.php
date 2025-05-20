@@ -12,9 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
+    // Check for admin credentials
+    if ($email === 'admin@oose.c2c.com' && $password === 'root') {
+        echo json_encode(['success' => true, 'role' => 'admin']);
+        exit;
+    }
+
+    // Normal user login
     $user = new User($pdo);
     if ($user->login($email, $password)) {
-        echo json_encode(['success' => true]);
+        echo json_encode(['success' => true, 'role' => 'user']);
     } else {
         echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
     }
