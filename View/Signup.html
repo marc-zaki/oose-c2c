@@ -23,9 +23,6 @@
                 <h2 class="text-xl font-medium text-gray-800">Sign up</h2>
             </div>
 
-            <?php if (!empty($message)): ?>
-                <p class="mb-4 text-center text-sm text-red-500"> <?php echo $message; ?> </p>
-            <?php endif; ?>
             
             <form class="w-full max-w-md" method="POST" action="">
                 <div class="flex gap-4 mb-4">
@@ -58,10 +55,39 @@
                 <button type="submit" class="w-full py-2 rounded bg-gradient-to-r from-green-600 to-purple-500 text-white font-medium hover:opacity-90 transition-opacity">
                     Sign Up
                 </button>
-                <a href="Login.php" class="block mt-4 text-center text-green-600 hover:underline">Already got an account?</a>
-                <a href="/HTML/Homepage.html">backdoor</a>
+                <a href="Login.html" class="block mt-4 text-center text-green-600 hover:underline">Already got an account?</a>
+                <a href="Homepage.html">backdoor</a>
             </form>
+            <p id="signup-message" class="mb-4 text-center text-sm text-red-500"></p>
         </div>
     </div>
+
+    <script>
+document.querySelector('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const response = await fetch('../Controller/signup_process.php', {
+        method: 'POST',
+        body: formData
+    });
+    const result = await response.json();
+
+    // Show error or redirect
+    if (result.success) {
+        window.location.href = 'Login.html'; // Redirect to login after successful signup
+    } else {
+        let msg = document.querySelector('#signup-message');
+        if (!msg) {
+            msg = document.createElement('p');
+            msg.id = 'signup-message';
+            msg.className = 'mb-4 text-center text-sm text-red-500';
+            form.parentNode.insertBefore(msg, form);
+        }
+        msg.textContent = result.message || 'Signup failed.';
+    }
+});
+</script>
 </body>
 </html>

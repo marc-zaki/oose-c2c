@@ -1,0 +1,26 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+header('Content-Type: application/json');
+
+require_once __DIR__ . '/User.php';
+require_once __DIR__ . '/../Model/db_connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    $user = new User($pdo);
+    if ($user->login($email, $password)) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
+    }
+    exit;
+}
+
+echo json_encode(['success' => false, 'message' => 'Invalid request.']);
+exit;
+?>
