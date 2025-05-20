@@ -273,6 +273,29 @@
         </div>
     </footer>
     <script src="/JS/lrtSelectStation.js"></script>
+    <script>
+document.getElementById('confirm-booking').addEventListener('click', async function(e) {
+    e.preventDefault();
+    const start = document.getElementById('starting-station').value;
+    const end = document.getElementById('final-station').value;
+    const formData = new FormData();
+    formData.append('starting_station', start);
+    formData.append('final_station', end);
+    formData.append('ticketType', 'lrt'); // Factory will create LRT_Ticket
+
+    const response = await fetch('../Controller/book_trip.php', {
+        method: 'POST',
+        body: formData
+    });
+    const result = await response.json();
+
+    // Show result to user
+    if (result.success) {
+        alert('LRT ticket booked!\n' + (result.ticket_details || ''));
+    } else {
+        alert(result.message || 'Booking failed.');
+    }
+});
+</script>
 </body>
 </html>
-``` 

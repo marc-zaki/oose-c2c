@@ -8,11 +8,11 @@ class Trip {
     private string $trip_date;
     private Ticket $ticket;
 
-    public function __construct(int $trip_ID, string $trip_date, string $ticketType, ...$ticketParams) {
+    public function __construct(int $trip_ID, string $trip_date, string $ticketType, ...$params) {
         $this->trip_ID = $trip_ID;
         $this->trip_date = $trip_date;
-        // Create the ticket using the factory
-        $this->ticket = Ticket_Factory::createTicket($ticketType, ...$ticketParams);
+        //calling the ticket factory to create the ticket
+        $this->ticket = Ticket_Factory::createTicket($ticketType, ...$params);
     }
 
     public function startTrip() {

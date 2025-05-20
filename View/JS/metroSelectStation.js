@@ -209,4 +209,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Redirect to payment page with booking details
         window.location.href = `/HTML/Payment.html?from=${encodeURIComponent(startingStation)}&to=${encodeURIComponent(finalStation)}`;
     });
+
+    // Update labels on station change
+    document.getElementById('starting-station').addEventListener('change', function() {
+        document.getElementById('metro-start-label').textContent = this.options[this.selectedIndex].text || 'Start';
+    });
+    document.getElementById('final-station').addEventListener('change', function() {
+        document.getElementById('metro-end-label').textContent = this.options[this.selectedIndex].text || 'End';
+    });
 });
