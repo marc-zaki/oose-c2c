@@ -1,25 +1,23 @@
 <?php
-require_once __DIR__ . '/../Model/db_connection.php'; // Include the database connection
+require_once __DIR__ . '/../Model/db_connection.php';
+// filepath: c:\wamp64\www\oose-c2c\Controller\User.php
 
 class User {
-    private int $ID;
+    protected int $ID;
     private string $firstName;
     private string $lastName;
     private string $password;
     private string $email;
     private int $social_security_number;
-    private int $points;
-    private $pdo;
-
-     public function __construct($pdo, $social_security_number = 0, $email = '', $points = 0, $firstName = '', $lastName = '', $password = '', $ID = 0) {
+    protected $pdo;
+    public function __construct($pdo, $ID = 0, $firstName = '', $lastName = '', $password = '', $email = '', $social_security_number = 0) {
         $this->pdo = $pdo;
-        $this->social_security_number = $social_security_number;
-        $this->email = $email;
+        $this->ID = $ID;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->points = $points;
         $this->password = $password;
-        $this->ID = $ID;
+        $this->email = $email;
+        $this->social_security_number = $social_security_number;
     }
 
     public function login($email, $password) {
@@ -28,19 +26,12 @@ class User {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['Password'])) {
-            $this->social_security_number = $user['SSN'];
-            $this->email = $user['email'];
-            $this->points = $user['Points'];
-            $this->firstName = $user['F_name'];
-            $this->lastName = $user['L_name'];
-            $this->password = $user['Password'];
-            $this->ID = $user['User_ID'];
             return true;
         }
         return false;
     }
 
-    public function signup($socialSecurityNumber, $email, $points, $firstName, $lastName, $password) {
+    public function signup($socialSecurityNumber, $email, $points, $firstName, $lastName, $password, $userID = 0) {
         $stmt = $this->pdo->prepare("SELECT * FROM user WHERE SSN = :socialSecurityNumber");
         $stmt->execute(['socialSecurityNumber' => $socialSecurityNumber]);
         if ($stmt->fetch()) {
@@ -55,7 +46,10 @@ class User {
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        $stmt = $this->pdo->prepare("INSERT INTO user (SSN, email, Points, F_name, L_name, Password, User_ID) VALUES (:socialSecurityNumber, :email, :points, :firstName, :lastName, :password, :userID)");
+        $stmt = $this->pdo->prepare(
+            "INSERT INTO user (SSN, email, Points, F_name, L_name, Password, User_ID) 
+             VALUES (:socialSecurityNumber, :email, :points, :firstName, :lastName, :password, :userID)"
+        );
         $stmt->execute([
             'socialSecurityNumber' => $socialSecurityNumber,
             'email' => $email,
@@ -63,7 +57,7 @@ class User {
             'firstName' => $firstName,
             'lastName' => $lastName,
             'password' => $hashedPassword,
-            'userID' => 0 // or auto-increment if handled by DB
+            'userID' => $userID
         ]);
 
         return true;
