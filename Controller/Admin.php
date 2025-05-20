@@ -4,7 +4,7 @@ require_once 'User.php'; // Include the User class
 
 class Admin extends User {
     public function addStation($name, $location) {
-       []
+       
     }
 
     public function removeStation($stationId) {
