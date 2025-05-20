@@ -177,6 +177,15 @@ document.addEventListener('DOMContentLoaded', function() {
         totalPriceDetail.textContent = `${price} LE`;
     }
 
+    function updateMetroLabels() {
+        const startLabel = document.getElementById('metro-start-label');
+        const endLabel = document.getElementById('metro-end-label');
+        const startSelect = document.getElementById('starting-station');
+        const endSelect = document.getElementById('final-station');
+        startLabel.textContent = startSelect.selectedOptions[0]?.text || 'Start';
+        endLabel.textContent = endSelect.selectedOptions[0]?.text || 'End';
+    }
+
     // Event Listeners
     startingLineSelect.addEventListener('change', () => {
         updateStations(startingStationSelect, startingLineSelect.value);
@@ -191,10 +200,17 @@ document.addEventListener('DOMContentLoaded', function() {
     startingStationSelect.addEventListener('change', updateTripDetails);
     finalStationSelect.addEventListener('change', updateTripDetails);
 
+    // Update labels on station change
+    document.getElementById('starting-station').addEventListener('change', updateMetroLabels);
+    document.getElementById('final-station').addEventListener('change', updateMetroLabels);
+
     // Initialize default stations
     updateStations(startingStationSelect, 'line2');
     updateStations(finalStationSelect, 'line3');
     updateTripDetails();
+
+    // Also call once on page load and after station dropdowns are updated
+    updateMetroLabels();
 
     // Confirm Booking Handler
     document.getElementById('confirm-booking').addEventListener('click', function() {
@@ -208,13 +224,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Redirect to payment page with booking details
         window.location.href = `/HTML/Payment.html?from=${encodeURIComponent(startingStation)}&to=${encodeURIComponent(finalStation)}`;
-    });
-
-    // Update labels on station change
-    document.getElementById('starting-station').addEventListener('change', function() {
-        document.getElementById('metro-start-label').textContent = this.options[this.selectedIndex].text || 'Start';
-    });
-    document.getElementById('final-station').addEventListener('change', function() {
-        document.getElementById('metro-end-label').textContent = this.options[this.selectedIndex].text || 'End';
     });
 });
