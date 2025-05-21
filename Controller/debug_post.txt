@@ -2,7 +2,7 @@ Array
 (
     [starting_line] => lrt-line
     [destination_line] => lrt-line
-    [starting_station] => 
-    [final_station] => 
+    [starting_station] => el-obour
+    [final_station] => capital-gardens
     [ticketType] => lrt
 )
