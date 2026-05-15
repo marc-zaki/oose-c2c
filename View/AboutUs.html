@@ -4,103 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorgin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./about.css">
+    <title>About Us - C2C Transport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
-
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="login.php"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img src="./pictures/logo c2c.png" alt="logo" height="100px" width="230px">
-                <span class="fs-4">Cairo2Capital Transport</span>
-            </a>
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="./stations.php" class="nav-link text-success">Home</a></li>
-                <li class="nav-item"><a href="./lines.html" class="nav-link text-success">Lines</a></li>
-                <li class="nav-item"><a href="./FAQs.html" class="nav-link text-success">FAQs</a></li>
-                <li class="nav-item"><a href="./about.html" class="nav-link bg-success text-white">About</a></li>
-                <li class="nav-item"><a href="./edit_user.php" class="nav-link text-success">Account</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Admin Portal
+<body class="min-h-screen bg-gray-50 flex flex-col">
+    <!-- Navbar (Consistent with rest of the site) -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="Homepage.html" class="flex items-center">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z" />
+                            </svg>
+                        </div>
+                        <span class="ml-2 text-gray-900 font-bold">C2C</span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="./1train_details.php">Train Details</a></li>
-                        <li><a class="dropdown-item" href="./2stations_details.php">Stations Details</a></li>
-                        <li><a class="dropdown-item" href="./3maintenance.php">Maintenance</a></li>
-                        <li><a class="dropdown-item" href="./4line_details.php">Line Details</a></li>
-                        <li><a class="dropdown-item" href="./5drivers_details.php">Drivers Details</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
-    </div>
+                </div>
 
-    <div class="container mt-4">
-        <h1 class="text-center">About Us</h1>
-        <h3 class="text-center">We are a group of committed students that want to make transportation methods easier,
-            safer and efficient</h3>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="Homepage.html"
+                        class="text-gray-700 hover:text-purple-600 font-medium transition-colors">Home</a>
 
-        <div class="namesContainer mt-4">
-            <div class="Marc text-center abt">
-                <img src="./src/about/IMG_3940.jpg" alt="marc" class="round-image">
-                <h3>Marc Sherif</h3>
-                <a href="https://www.linkedin.com/in/marc-zaki-48bb35193/"><i class="fa fa-linkedin-square"
-                        style="font-size:24px"></i> LinkedIn</a><br>
-                <a href="https://github.com/marc-zaki" style="color: black;"><i class="fa fa-github"
-                        style="font-size:24px;"></i> GitHub</a>
+                    <div class="relative group">
+                        <button
+                            class="flex items-center text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                            Maps
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="Maps-Metro.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">Metro</a>
+                            <a href="Maps-LRT.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">LRT</a>
+                            <a href="Maps-MwaslatMisr.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">Mwasalat
+                                misr</a>
+                        </div>
+                    </div>
+
+                    <a href="FAQ.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">FAQ</a>
+                    <a href="AboutUs.html"
+                        class="text-purple-600 font-medium transition-colors">About us</a>
+                </div>
+
+                <div>
+                    <a href="Account.html"
+                        class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium">
+                        Account
+                    </a>
+                </div>
             </div>
+        </div>
+    </nav>
 
-            <div class="David text-center abt">
-                <img src="./src/about/WhatsApp Image 2024-11-28 at 08.58.39.jpeg" alt="david" class="round-image">
-                <h3>David Rimon</h3>
-                <a href="https://www.linkedin.com/in/david-rimon-b520a2216/"><i class="fa fa-linkedin-square"
-                        style="font-size:24px"></i> LinkedIn</a><br>
-                <a href="https://github.com/davidrimon2004" style="color: black;"><i class="fa fa-github"
-                        style="font-size:24px;"></i> GitHub</a>
-            </div>
-
-            <div class="Omar text-center abt">
-                <img src="./src/about/PHOTO-2024-11-28-09-19-13.jpg" alt="omar" class="round-image">
-                <h3>Omar Essam</h3>
-                <a href="https://www.linkedin.com/in/omar-elbanna-94ba05307/"><i class="fa fa-linkedin-square"
-                        style="font-size:24px"></i> LinkedIn</a><br>
-                <a href="https://github.com/bannxa" style="color: black;"><i class="fa fa-github"
-                        style="font-size:24px;"></i> GitHub</a>
-            </div>
-
-            <div class="Lydia text-center abt">
-                <img src="./src/about/WhatsApp Image 2024-11-28 at 07.58.19.jpeg" alt="lydia" class="round-image">
-                <h3>Lydia Wagdi</h3>
-                <a href="#"><i class="fa fa-linkedin-square" style="font-size:24px"></i></i> LinkedIn</a><br>
-                <a href="https://github.com/lydiawagdi" style="color: black;"><i class="fa fa-github"
-                        style="font-size:24px;"></i> GitHub</a>
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-green-500 to-purple-600 py-20 text-white text-center">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
+                <p class="text-lg md:text-xl text-green-50 max-w-2xl mx-auto">
+                    We are a group of committed students that want to make transportation methods easier, safer and more efficient for everyone traveling from Cairo to the New Administrative Capital.
+                </p>
             </div>
         </div>
 
-        <footer class="py-3 my-4 mt-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="./stations.php" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="./lines.html" class="nav-link px-2 text-body-secondary">Lines</a></li>
-                <li class="nav-item"><a href="./FAQs.html" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                <li class="nav-item"><a href="./about.html" class="nav-link px-2 text-body-secondary">About</a></li>
-            </ul>
-            <p class="text-center text-body-secondary">© 2024 Cairo2Capital Transport</p>
-        </footer>
-    </div>
+        <!-- Team Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Meet Our Team</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto mt-4 rounded"></div>
+            </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Team Member: Marc -->
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 flex flex-col items-center p-8 group">
+                    <div class="relative w-32 h-32 mb-6">
+                        <img src="../src/about/IMG_3940.jpg" alt="Marc Sherif" class="w-full h-full object-cover rounded-full shadow-inner ring-4 ring-green-50 group-hover:ring-green-100 transition-all">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Marc Sherif</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium uppercase tracking-wide">Developer</p>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="https://www.linkedin.com/in/marc-zaki-48bb35193/" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://github.com/marc-zaki" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Team Member: David -->
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 flex flex-col items-center p-8 group">
+                    <div class="relative w-32 h-32 mb-6">
+                        <img src="../src/about/WhatsApp Image 2024-11-28 at 08.58.39.jpeg" alt="David Rimon" class="w-full h-full object-cover rounded-full shadow-inner ring-4 ring-green-50 group-hover:ring-green-100 transition-all">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">David Rimon</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium uppercase tracking-wide">Developer</p>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="https://www.linkedin.com/in/david-rimon-b520a2216/" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://github.com/davidrimon2004" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member: Omar -->
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 flex flex-col items-center p-8 group">
+                    <div class="relative w-32 h-32 mb-6">
+                        <img src="../src/about/PHOTO-2024-11-28-09-19-13.jpg" alt="Omar Essam" class="w-full h-full object-cover rounded-full shadow-inner ring-4 ring-purple-50 group-hover:ring-purple-100 transition-all">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Omar Essam</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium uppercase tracking-wide">Developer</p>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="https://www.linkedin.com/in/omar-elbanna-94ba05307/" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://github.com/bannxa" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member: Lydia -->
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 flex flex-col items-center p-8 group">
+                    <div class="relative w-32 h-32 mb-6">
+                        <img src="../src/about/WhatsApp Image 2024-11-28 at 07.58.19.jpeg" alt="Lydia Wagdi" class="w-full h-full object-cover rounded-full shadow-inner ring-4 ring-purple-50 group-hover:ring-purple-100 transition-all">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Lydia Wagdi</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium uppercase tracking-wide">Developer</p>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://github.com/lydiawagdi" target="_blank" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-200">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"/>
+                            </svg>
+                        </div>
+                        <span class="ml-2 text-white font-bold text-lg">C2C</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Making transport between Cairo and the New Administrative Capital efficient and hassle-free.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="Homepage.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="Maps-Metro.html" class="text-gray-400 hover:text-white transition-colors">Metro Map</a></li>
+                        <li><a href="Maps-LRT.html" class="text-gray-400 hover:text-white transition-colors">LRT Map</a></li>
+                        <li><a href="FAQ.html" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 C2C. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
